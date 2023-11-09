@@ -1,13 +1,75 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Game {
 	
 	private static Room currentRoom;
 	private static ArrayList<Item> inventory = new ArrayList<Item>();
+	public static HashMap<String, String> roomDesc = new HashMap<String, String>();
 	
 	public static Room getCurrentRoom() {
 		return currentRoom;
+	}
+	
+	public static void saveGame() {
+		try {
+			File saveFile = new File("save");
+			saveFile.createNewFile();
+			ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(saveFile));
+			stream.writeObject(currentRoom);
+			stream.writeObject(inventory);
+			stream.writeObject(World.rooms);
+			stream.close();
+		} catch (IOException e) {
+			print("ERROR: Cannot save file.");
+			e.printStackTrace();
+		}
+	}
+	
+	public static void loadGame() {
+		ObjectInputStream stream;
+		try {
+			stream = new ObjectInputStream(new FileInputStream(new File("save")));
+			currentRoom = (Room) stream.readObject();
+			inventory = (ArrayList<Item>) stream.readObject();
+			World.rooms = (HashMap<String, Room>) stream.readObject();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void populateMap() {
+		try {
+			Scanner scan = new Scanner(new File("rooms.txt"));
+			while(scan.hasNextLine()) {
+				String roomID = scan.nextLine();
+				String desc = "";
+				String line = scan.nextLine();
+				while(!line.equals("#")) {
+					desc = desc + line;
+					line = scan.nextLine();
+				}
+				roomDesc.put(roomID, desc);
+			}
+		}catch(FileNotFoundException ex){
+			System.out.println("File not found.");
+		}
 	}
 	
 	public static void move(String playerCommand) {
@@ -51,6 +113,7 @@ public class Game {
 		String playerCommand = "a";
 		String[] itemName;
 		currentRoom = World.buildWorld();
+		Game.populateMap();
 		System.out.println(currentRoom);
 		
 		while(!playerCommand.equals("x")) {
@@ -117,6 +180,10 @@ public class Game {
 				move(playerCommand);
 			}else if (playerCommand.equals("x")) {
 				System.out.println("Okay. Bye!");
+			}else if(playerCommand.equals("save")){
+				saveGame();
+			}else if(playerCommand.equals("load")){
+				loadGame();
 			}else {
 				System.out.println("Invalid command.");
 			}

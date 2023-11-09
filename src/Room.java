@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Room {
+public class Room implements Serializable {
 
-	private String description;
+	private String roomID;
 	private Room east;
 	private Room west;
 	private Room north;
@@ -14,11 +15,12 @@ public class Room {
 	
 	private HashMap<String, Item> roomItems;
 	
-	public Room(String n, String d) {
+	public Room(String n, String r) {
 		name = n;
-		description = d;
+		roomID = r;
 		locked = false;
 		roomItems = new HashMap<String, Item>();
+		World.rooms.put(name, this);
 	}
 	
 	public String getName() {
@@ -54,7 +56,8 @@ public class Room {
 	}
 	
 	public String getDescription() {
-		return description;
+		String desc = Game.roomDesc.get(roomID);
+		return desc;
 	}
 	
 	public Room getExit(char direction) {
@@ -92,7 +95,8 @@ public class Room {
 	}
 	
 	public String toString() {
-		return description;
+		String desc = Game.roomDesc.get(roomID);
+		return desc;
 	}
 	
 	
