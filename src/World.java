@@ -15,6 +15,7 @@ public class World {
 	Room ocean = new Room("ocean","DOCK_OCEAN");
 	Room bathroom = new Room("bathroom","DOCK_BATHROOM");
 	Room bedroom = new Room("bedroom","DOCK_BEDROOM");
+	Room closet = new Room("closet", "DOCK_CLOSET");
 	Room lounge = new Room("lounge","DOCK_LOUNGE");
 	
 	Item crates = new Item("crates");
@@ -35,6 +36,8 @@ public class World {
 	knife.setDesc("Sharp knife that could be used to open something");
 	Item dresser = new Dresser();
 	dresser.setDesc("Dresser with three drawers, it looks to be unlocked.");
+	Item clothes = new Clothes();
+	clothes.setDesc("Pile of clothing thrown about");
 	
 	//DOCK
 	dock.addExit(ship, 'e');
@@ -59,7 +62,12 @@ public class World {
 	
 	bedroom.addExit(ship, 'n');
 	bedroom.addItem(dresser);
+	bedroom.addExit(closet, 'e');
 	dresser.setHeavy(true);
+	
+	//closet.setLocked(true);
+	closet.addExit(bedroom,'w');
+	closet.addItem(clothes);
 	
 	//SUBMARINE
 	submarine.addExit(dock, 's');
