@@ -33,6 +33,17 @@ public class Item implements Serializable {
 		used = u;
 	}
 	
+	public void take() {
+		if (heavy) {
+			System.out.println("That's too heavy to carry around!");
+		}else if (name.equals("goo")) {
+			System.out.println("You can't carry goo!");
+		}else {
+			Game.inventory.add(Game.getCurrentRoom().removeItem(name));
+			System.out.println("You pick up the "+name);
+		}
+	}
+	
 	public void look() {
 		System.out.println(description);
 	}

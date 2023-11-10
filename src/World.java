@@ -9,14 +9,14 @@ public class World {
 	public static Room buildWorld() {
 	Room dock = new Room("dock","DOCK_DOCK");
 	Room ship = new Room("ship","DOCK_SHIP");
-	Room storage = new Room("storage","DOCK_STORAGE");
+	Room storage = new Room("storage","SHIP_STORAGE");
 	Room submarine = new Room("submarine","DOCK_SUBMARINE");
 	Room gate = new Room("gate","DOCK_GATE");
 	Room ocean = new Room("ocean","DOCK_OCEAN");
-	Room bathroom = new Room("bathroom","DOCK_BATHROOM");
-	Room bedroom = new Room("bedroom","DOCK_BEDROOM");
-	Room closet = new Room("closet", "DOCK_CLOSET");
-	Room lounge = new Room("lounge","DOCK_LOUNGE");
+	Room bathroom = new Room("bathroom","SUBMARINE_BATHROOM");
+	Room bedroom = new Room("bedroom","SHIP_BEDROOM");
+	Room closet = new Room("closet", "SHIP_CLOSET");
+	Room lounge = new Room("lounge","SHIP_LOUNGE");
 	
 	Item crates = new Item("crates");
 	crates.setDesc("Crate with knife inside");

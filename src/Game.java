@@ -12,11 +12,15 @@ import java.util.Scanner;
 public class Game {
 	
 	private static Room currentRoom;
-	private static ArrayList<Item> inventory = new ArrayList<Item>();
+	public static ArrayList<Item> inventory = new ArrayList<Item>();
 	public static HashMap<String, String> roomDesc = new HashMap<String, String>();
 	
 	public static Room getCurrentRoom() {
 		return currentRoom;
+	}
+	
+	public static void setCurrentRoom(Room r) {
+		currentRoom = r;
 	}
 	
 	public static void saveGame() {
@@ -131,14 +135,7 @@ public class Game {
 			}else if (itemName[0].equals("take")) {
 				if (currentRoom.hasItem(itemName[1])) {
 					Item item = currentRoom.getItem(itemName[1]);
-					if (item.isHeavy()) {
-						System.out.println("That's too heavy to carry around!");
-					}else if (item.getName().equals("goo")) {
-						System.out.println("You can't carry goo!");
-					}else {
-						inventory.add(currentRoom.removeItem(itemName[1]));
-						System.out.println("You pick up the "+itemName[1]);
-					}
+					item.take();
 				}else {
 					System.out.println("There is no "+itemName[1]+"!");
 				}

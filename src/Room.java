@@ -55,6 +55,10 @@ public class Room implements Serializable {
 		return roomItems.containsKey(name);
 	}
 	
+	public void setRoomID(String id) {
+		roomID = id;
+	}
+	
 	public String getDescription() {
 		String desc = Game.roomDesc.get(roomID);
 		return desc;
