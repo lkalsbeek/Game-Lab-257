@@ -16,18 +16,19 @@ public class World {
 	Room bathroom = new Room("bathroom","SUBMARINE_BATHROOM");
 	Room bedroom = new Room("bedroom","SHIP_BEDROOM");
 	Room closet = new Room("closet", "SHIP_CLOSET");
-	Room lounge = new Room("lounge","SHIP_LOUNGE");
+	Room lounge = new Room("lounge","SUBMARINE_LOUNGE");
 	
 	Item crates = new Item("crates");
-	crates.setDesc("Crate with knife inside");
+	crates.setDesc("Large broken crates with pieces of wood scattered about, you spot part of what"
+			+ " looks like a knife.");
 	Item wand = new Wand();
-	wand.setDesc("Fancy wand that has magical powers");
+	wand.setDesc("Fancy wand that has magical powers, might be able to transport you from room to room");
 	Item box = new Item("box");
-	box.setDesc("Large taped box with unknown contents");
+	box.setDesc("Large taped box, seems slightly heavy can't tell if there is anything inside.");
 	Item key = new Key();
 	key.setDesc("small key");
 	Item chest = new Item ("chest");
-	chest.setDesc("Large and heavy locked chest");
+	chest.setDesc("Large and heavy locked chest need key to unlock.");
 	Item chain = new Chain();
 	chain.setDesc("Chain that is hanging from the ceiling");
 	Item shower = new Shower();
@@ -37,7 +38,7 @@ public class World {
 	Item dresser = new Dresser();
 	dresser.setDesc("Dresser with three drawers, it looks to be unlocked.");
 	Item clothes = new Clothes();
-	clothes.setDesc("Pile of clothing thrown about");
+	clothes.setDesc("Pile of clothing thrown about the floor.");
 	
 	//DOCK
 	dock.addExit(ship, 'e');
@@ -46,6 +47,7 @@ public class World {
 	dock.addExit(submarine, 'n');
 	dock.addExit(gate, 's');
 	dock.addExit(ocean, 'w');
+	crates.setHeavy(true);
 	
 	ocean.addExit(dock, 'e');
 	
@@ -65,7 +67,7 @@ public class World {
 	bedroom.addExit(closet, 'e');
 	dresser.setHeavy(true);
 	
-	//closet.setLocked(true);
+	closet.setLocked(true);
 	closet.addExit(bedroom,'w');
 	closet.addItem(clothes);
 	

@@ -12,7 +12,7 @@ public class Knife extends Item{
 			else {
 				System.out.println("The knife cuts open the box! You find a bottle inside!");
 				Item bottle = new Item("bottle");
-				bottle.setDesc("!");
+				bottle.setDesc("There looks to be a note inside. Need to investigate more.");
 				Game.getCurrentRoom().addItem(bottle);
 				setUsed(true);
 			}

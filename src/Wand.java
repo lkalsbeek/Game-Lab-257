@@ -12,9 +12,7 @@ public class Wand extends Item {
 	}
 	
 	public void use() {
-		if (!Game.hasItem.getName()){
-			
-		}else if (Game.getCurrentRoom().getName().equals("ship")) {
+		if (Game.getCurrentRoom().getName().equals("ship")) {
 			System.out.println("You wave the wand around and the storage "
 					+ "room magically unlocks!");
 			Room storage = Game.getCurrentRoom().getExit('n');

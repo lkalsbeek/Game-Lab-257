@@ -11,7 +11,10 @@ DOCK_SUBMARINE
 You are in the submarine. The dock is to the south. There is a wand on the floor. There is a large locked chest, a bathroom to the east and a lounge to the north.
 #
 DOCK_SUBMARINE_B
-You are in the submarine, the dock is to the south. There is a large locked chest and a door to a bathroom to the east.
+You are in the submarine. The dock is to the south. There is a large locked chest, a bathroom to the east and a lounge to the north.
+#
+DOCK_SUBMARINE_C
+You are in the submarine. The dock is to the south. There is a large unlocked chest, a bathroom to the east and a lounge to the north.
 #
 SUBMARINE_LOUNGE
 You are in the lounge, the submarine is to the south. There are a few chairs, a table, and some cabinets along the wall.
@@ -20,7 +23,10 @@ DOCK_OCEAN
 You fell off the dock and are in the ocean! Beware of sharks!
 #
 SHIP_BEDROOM
-The ship is to the north, there is a bed and dresser in the room. There is also a closet to the east. 
+The ship is to the north, there is a bed and dresser in the room. There is also a closet to the east, the door to the closet looks to have a broken lock.  
+#
+SHIP_BEDROOM_B
+The ship is to the north, there is a bed and dresser in the room. There is also a closet to the east.
 #
 SHIP_CLOSET
 You are in the closet! The bedroom is to the west, there are clothes thrown everywhere like someone was just here. 

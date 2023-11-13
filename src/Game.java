@@ -181,6 +181,7 @@ public class Game {
 				saveGame();
 			}else if(playerCommand.equals("load")){
 				loadGame();
+				System.out.println(currentRoom);
 			}else {
 				System.out.println("Invalid command.");
 			}
