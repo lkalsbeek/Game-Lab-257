@@ -40,6 +40,9 @@ public class World {
 	Item clothes = new Clothes();
 	clothes.setDesc("Pile of clothing thrown about the floor.");
 	
+	NPC puppy = new Puppy();
+	NPC captain = new Captain();
+	
 	//DOCK
 	dock.addExit(ship, 'e');
 	dock.addItem(crates);
@@ -48,6 +51,7 @@ public class World {
 	dock.addExit(gate, 's');
 	dock.addExit(ocean, 'w');
 	crates.setHeavy(true);
+	dock.addNPC(puppy);
 	
 	ocean.addExit(dock, 'e');
 	
@@ -80,6 +84,7 @@ public class World {
 	chest.setHeavy(true);
 	
 	lounge.addExit(submarine, 's');
+	lounge.addNPC(captain);
 	
 	bathroom.addExit(submarine, 'w');
 	bathroom.addItem(shower);

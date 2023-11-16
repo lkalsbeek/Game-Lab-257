@@ -14,13 +14,27 @@ public class Room implements Serializable {
 	private String name;
 	
 	private HashMap<String, Item> roomItems;
+	private HashMap<String, NPC> roomNPCs;
 	
 	public Room(String n, String r) {
 		name = n;
 		roomID = r;
 		locked = false;
 		roomItems = new HashMap<String, Item>();
+		roomNPCs = new HashMap<String, NPC>();
 		World.rooms.put(name, this);
+	}
+	
+	public void addNPC(NPC npc) {
+		roomNPCs.put(npc.getName(), npc);
+	}
+	
+	public void removeNPC(String name) {
+		roomNPCs.remove(name, getNPC(name));
+	}
+	
+	public NPC getNPC(String name) {
+		return roomNPCs.get(name);
 	}
 	
 	public String getName() {

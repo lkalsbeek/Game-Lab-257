@@ -14,6 +14,7 @@ public class Game {
 	private static Room currentRoom;
 	public static ArrayList<Item> inventory = new ArrayList<Item>();
 	public static HashMap<String, String> roomDesc = new HashMap<String, String>();
+	public static Scanner scan = new Scanner(System.in);
 	
 	public static Room getCurrentRoom() {
 		return currentRoom;
@@ -113,17 +114,16 @@ public class Game {
 		}
 	
 	public static void main(String[] args) { 
-		Scanner scan = new Scanner(System.in);
-		String playerCommand = "a";
-		String[] itemName;
-		currentRoom = World.buildWorld();
 		Game.populateMap();
+		String playerCommand = "a";
+		String[] words;
+		currentRoom = World.buildWorld();
 		System.out.println(currentRoom);
 		
 		while(!playerCommand.equals("x")) {
 			System.out.print("What do you want to do?");
 			playerCommand = scan.nextLine();
-			itemName = playerCommand.split(" ");
+			words = playerCommand.split(" ");
 			if (playerCommand.equals("i")) {
 				if(inventory.isEmpty()) {
 				System.out.println("You are carrying nothing.");
@@ -132,35 +132,41 @@ public class Game {
 						System.out.println(i);
 					}
 				}
-			}else if (itemName[0].equals("take")) {
-				if (currentRoom.hasItem(itemName[1])) {
-					Item item = currentRoom.getItem(itemName[1]);
+			}else if (words[0].equals("talk")) {
+				NPC npc = currentRoom.getNPC(words[1]);
+				npc.talk();
+			}else if (words[0].equals("take")) {
+				if (currentRoom.hasItem(words[1])) {
+					Item item = currentRoom.getItem(words[1]);
 					item.take();
 				}else {
-					System.out.println("There is no "+itemName[1]+"!");
+					System.out.println("There is no "+words[1]+"!");
 				}
-			}else if (itemName[0].equals("look")) {
-				Item a = getItem(itemName[1]);
+			}else if (words[0].equals("look")) {
+				Item a = getItem(words[1]);
 				if (a != null) {
 					a.look();
 				}else { 
-					a = currentRoom.getItem(itemName[1]);
+					a = currentRoom.getItem(words[1]);
+					NPC b = currentRoom.getNPC(words[1]);
 					if (a != null) {
 						a.look();
+					}else if (b!=null){
+						b.look();
 					}else {
-						System.out.println("You have no "+itemName[1]+"!");
+						System.out.println("You have no "+words[1]+"!");
 					}
 				}
-			}else if (itemName[0].equals("use")) {
-				Item b = getItem(itemName[1]);
+			}else if (words[0].equals("use")) {
+				Item b = getItem(words[1]);
 				if (b != null) {
 					b.use();
 				}else { 
-					b = currentRoom.getItem(itemName[1]);
+					b = currentRoom.getItem(words[1]);
 					if (b != null) {
 						b.use();
 					}else {
-						System.out.println("You have no "+itemName[1]+"!");
+						System.out.println("You have no "+words[1]+"!");
 					}
 				}
 			}else if (playerCommand.equals("e")) {

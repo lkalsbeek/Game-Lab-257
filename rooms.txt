@@ -1,5 +1,8 @@
 DOCK_DOCK
-You are on a dock.There is a ship to the east, a submarine to the north, the ocean to the west, and a gate to the south. The gate is your only way out. The dock is empty besides a few crates.
+You are on a dock.There is a ship to the east, a submarine to the north, the ocean to the west, and a gate to the south. The gate is your only way out. The dock is empty besides a few crates. It looks like there may be a puppy hiding behind the crates.
+#
+DOCK_DOCK_B
+You are on a dock.There is a ship to the east, a submarine to the north, the ocean to the west, and a gate to the south. The gate is your only way out. The dock is empty besides a few crates. 
 #
 DOCK_SHIP
 You are on the ship.The dock is to the west, there is a storage room to the north and a chain hanging from the ceiling above the door to the storage room. There is a door to the south leading to a bedroom.
@@ -17,7 +20,10 @@ DOCK_SUBMARINE_C
 You are in the submarine. The dock is to the south. There is a large unlocked chest, a bathroom to the east and a lounge to the north.
 #
 SUBMARINE_LOUNGE
-You are in the lounge, the submarine is to the south. There are a few chairs, a table, and some cabinets along the wall.
+You are in the lounge, the submarine is to the south. There are a few chairs, a table, and some cabinets along the wall. There is what looks to be the captain of the submarine sitting at the table.
+#
+SUBMARINE_LOUNGE_B
+You are in the lounge, the submarine is to the south. There are a few chairs, a table, and some cabinets along the wall. 
 #
 DOCK_OCEAN
 You fell off the dock and are in the ocean! Beware of sharks!
