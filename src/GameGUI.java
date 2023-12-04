@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.text.DefaultCaret;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -31,6 +33,8 @@ public class GameGUI extends JFrame {
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setEditable(false);
+		DefaultCaret caret = (DefaultCaret) textArea.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 		JScrollPane scroll = new JScrollPane(textArea);
 		add(scroll);
 		
