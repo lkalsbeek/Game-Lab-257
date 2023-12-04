@@ -8,9 +8,9 @@ public class Dresser extends Item {
 	public void use() {
 		if (Game.getCurrentRoom().getName().equals("bedroom")) {
 			if (isUsed())
-				System.out.println("The dresser is already open.");
+				Game.print("The dresser is already open.");
 			else {
-				System.out.println("You open the three drawers of the dresser and find "
+				Game.print("You open the three drawers of the dresser and find "
 						+ "a flashlight!");
 				Item flashlight = new Item("flashlight");
 				flashlight.setDesc("Flashlight that can be used in dark rooms!");
@@ -18,7 +18,7 @@ public class Dresser extends Item {
 				setUsed(true);
 			}
 		}else{
-			System.out.println("The dresser cannont be used here.");
+			Game.print("The dresser cannont be used here.");
 		}
 	}
 	

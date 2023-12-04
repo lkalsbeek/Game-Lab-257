@@ -7,7 +7,7 @@ public class Chain extends Item {
 	
 	public void use() {
 		if (Game.getCurrentRoom().getName().equals("ship")) {
-			System.out.println("You pull the chain and goo falls from the ceiling covering "
+			Game.print("You pull the chain and goo falls from the ceiling covering "
 					+ "your clothes!");
 			Game.getCurrentRoom().removeItem("chain");
 			Item goo = new Item("goo");
@@ -15,7 +15,7 @@ public class Chain extends Item {
 			Game.addItem(goo);
 			setUsed(true);
 		}else{
-			System.out.println("The chain cannot be used here.");
+			Game.print("The chain cannot be used here.");
 		}
 	}
 }

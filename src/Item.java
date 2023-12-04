@@ -35,21 +35,21 @@ public class Item implements Serializable {
 	
 	public void take() {
 		if (heavy) {
-			System.out.println("That's too heavy to carry around!");
+			Game.print("That's too heavy to carry around!");
 		}else if (name.equals("goo")) {
-			System.out.println("You can't carry goo!");
+			Game.print("You can't carry goo!");
 		}else {
 			Game.inventory.add(Game.getCurrentRoom().removeItem(name));
-			System.out.println("You pick up the "+name);
+			Game.print("You pick up the "+name);
 		}
 	}
 	
 	public void look() {
-		System.out.println(description);
+		Game.print(description);
 	}
 	
 	public void use() {
-		System.out.println("You can't use this item...yet.");
+		Game.print("You can't use this item...yet.");
 	}
 	
 	

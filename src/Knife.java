@@ -8,16 +8,16 @@ public class Knife extends Item{
 	public void use() {
 		if (Game.getCurrentRoom().getName().equals("storage")) {
 			if (isUsed())
-				System.out.println("The box is already open.");
+				Game.print("The box is already open.");
 			else {
-				System.out.println("The knife cuts open the box! You find a bottle inside!");
+				Game.print("The knife cuts open the box! You find a bottle inside!");
 				Item bottle = new Item("bottle");
 				bottle.setDesc("There looks to be a note inside. Need to investigate more.");
 				Game.getCurrentRoom().addItem(bottle);
 				setUsed(true);
 			}
 		}else{
-			System.out.println("The knife cannont be used here.");
+			Game.print("The knife cannont be used here.");
 		}
 	}
 	

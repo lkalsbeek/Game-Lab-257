@@ -15,6 +15,7 @@ public class Game {
 	public static ArrayList<Item> inventory = new ArrayList<Item>();
 	public static HashMap<String, String> roomDesc = new HashMap<String, String>();
 	public static Scanner scan = new Scanner(System.in);
+	public static GameGUI gui;
 	
 	public static Room getCurrentRoom() {
 		return currentRoom;
@@ -73,7 +74,7 @@ public class Game {
 				roomDesc.put(roomID, desc);
 			}
 		}catch(FileNotFoundException ex){
-			System.out.println("File not found.");
+			Game.print("File not found.");
 		}
 	}
 	
@@ -81,13 +82,13 @@ public class Game {
 		Room nextRoom = currentRoom.getExit(playerCommand.charAt(0)); 
 		if (nextRoom != null) {
 			if(nextRoom.isLocked()) {
-				System.out.println("The room is locked!");
+				Game.print("The room is locked!");
 			}else {
 				currentRoom = nextRoom;
-				System.out.println(currentRoom);
+				Game.print(currentRoom);
 			}
 		}else {
-			System.out.println("You can't go that way!");
+			Game.print("You can't go that way!");
 		}
 	}
 	
@@ -109,8 +110,9 @@ public class Game {
 		inventory.add(name);
 	}
 	
-	public static void print(String message) {
-		System.out.println(message+"\n");
+	public static void print(Object message) {
+		gui.print(message.toString());
+		//System.out.println(message+"\n");
 		}
 	
 	public static void main(String[] args) { 
@@ -118,18 +120,19 @@ public class Game {
 		String playerCommand = "a";
 		String[] words;
 		currentRoom = World.buildWorld();
-		System.out.println(currentRoom);
+		gui = new GameGUI();
+		Game.print(currentRoom);
 		
 		while(!playerCommand.equals("x")) {
-			System.out.print("What do you want to do?");
+			System.out.println("What do you want to do?");
 			playerCommand = scan.nextLine();
 			words = playerCommand.split(" ");
 			if (playerCommand.equals("i")) {
 				if(inventory.isEmpty()) {
-				System.out.println("You are carrying nothing.");
+				Game.print("You are carrying nothing.");
 				}else {
 					for(Item i : inventory) {
-						System.out.println(i);
+						Game.print(i);
 					}
 				}
 			}else if (words[0].equals("talk")) {
@@ -140,7 +143,7 @@ public class Game {
 					Item item = currentRoom.getItem(words[1]);
 					item.take();
 				}else {
-					System.out.println("There is no "+words[1]+"!");
+					Game.print("There is no "+words[1]+"!");
 				}
 			}else if (words[0].equals("look")) {
 				Item a = getItem(words[1]);
@@ -154,7 +157,7 @@ public class Game {
 					}else if (b!=null){
 						b.look();
 					}else {
-						System.out.println("You have no "+words[1]+"!");
+						Game.print("You have no "+words[1]+"!");
 					}
 				}
 			}else if (words[0].equals("use")) {
@@ -166,7 +169,7 @@ public class Game {
 					if (b != null) {
 						b.use();
 					}else {
-						System.out.println("You have no "+words[1]+"!");
+						Game.print("You have no "+words[1]+"!");
 					}
 				}
 			}else if (playerCommand.equals("e")) {
@@ -182,14 +185,14 @@ public class Game {
 			}else if (playerCommand.equals("d")) {
 				move(playerCommand);
 			}else if (playerCommand.equals("x")) {
-				System.out.println("Okay. Bye!");
+				Game.print("Okay. Bye!");
 			}else if(playerCommand.equals("save")){
 				saveGame();
 			}else if(playerCommand.equals("load")){
 				loadGame();
-				System.out.println(currentRoom);
+				Game.print(currentRoom);
 			}else {
-				System.out.println("Invalid command.");
+				Game.print("Invalid command.");
 			}
 		} 
 		scan.close();
