@@ -7,6 +7,9 @@ You are on a dock.There is a ship to the east, a submarine to the north, the oce
 DOCK_SHIP
 You are on the ship.The dock is to the west, there is a storage room to the north and a chain hanging from the ceiling above the door to the storage room. There is a door to the south leading to a bedroom.
 #
+DOCK_SHIP_B
+You are on the ship.The dock is to the west, there is a storage room to the north and there is a door to the south leading to a bedroom.
+#
 SHIP_STORAGE
 You have entered the storage room. There is a box that is taped shut. The rest of the room is musty and there is a key on the floor! To return to the ship head south.
 #
@@ -26,13 +29,13 @@ SUBMARINE_LOUNGE_B
 You are in the lounge, the submarine is to the south. There are a few chairs, a table, and some cabinets along the wall. 
 #
 DOCK_OCEAN
-You fell off the dock and are in the ocean! Beware of sharks!
+You fell off the dock and are in the ocean! Beware of sharks! You can swim back to the dock if you go east.
 #
 SHIP_BEDROOM
-The ship is to the north, there is a bed and dresser in the room. There is also a closet to the east, the door to the closet looks to have a broken lock.  
+You are in the bedroom. The ship is to the north, there is a bed and dresser in the room. There is also a closet to the east, the door to the closet looks to have a broken lock.  
 #
 SHIP_BEDROOM_B
-The ship is to the north, there is a bed and dresser in the room. There is also a closet to the east.
+You are in the bedroom. The ship is to the north, there is a bed and dresser in the room. There is also a closet to the east.
 #
 SHIP_CLOSET
 You are in the closet! The bedroom is to the west, there are clothes thrown everywhere like someone was just here. 

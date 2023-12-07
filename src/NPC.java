@@ -1,8 +1,11 @@
+import java.io.Serializable;
 
-public class NPC {
+public class NPC implements Serializable{
 
 	private String name;
 	private String desc;
+	public static boolean convo = false;
+	public static NPC npc;
 	
 	public NPC(String name) {
 		this.name = name;
@@ -34,7 +37,7 @@ public class NPC {
 		Game.print("You can't talk to "+name+".");
 	}
 
-	public void response(int option) {
+	public void response(int object) {
 		
 	}
 	
@@ -46,11 +49,10 @@ public class NPC {
 	 */
 	public void getResponse(String[] options) {
 		for(int i=0; i<options.length; i++) {
-			Game.print("Option " +(i+1)+": "+options[i]);
+			Game.print("Option " +(i+1)+": "+options[i]);	
 		}
 		Game.print("Enter an option (1-"+options.length+"): ");
-		int choice = Game.scan.nextInt();
-		Game.scan.nextLine(); //flush input buffer
-		response(choice);
+		npc = this;
+		convo = true;
 	}
 }

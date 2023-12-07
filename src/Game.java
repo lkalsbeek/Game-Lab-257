@@ -16,6 +16,7 @@ public class Game {
 	public static HashMap<String, String> roomDesc = new HashMap<String, String>();
 	public static Scanner scan = new Scanner(System.in);
 	public static GameGUI gui;
+	public static String[] words;
 	
 	public static Room getCurrentRoom() {
 		return currentRoom;
@@ -83,6 +84,7 @@ public class Game {
 		if (nextRoom != null) {
 			if(nextRoom.isLocked()) {
 				Game.print("The room is locked!");
+				Game.print(currentRoom);
 			}else {
 				currentRoom = nextRoom;
 				Game.print(currentRoom);
@@ -117,15 +119,13 @@ public class Game {
 	
 	public static void main(String[] args) { 
 		Game.populateMap();
-		String playerCommand = "a";
-		String[] words;
 		currentRoom = World.buildWorld();
 		gui = new GameGUI();
 		Game.print(currentRoom);
+		Game.print("What do you want to do?");
+	}
 		
-		while(!playerCommand.equals("x")) {
-			System.out.println("What do you want to do?");
-			playerCommand = scan.nextLine();
+	public static void command(String playerCommand) {
 			words = playerCommand.split(" ");
 			if (playerCommand.equals("i")) {
 				if(inventory.isEmpty()) {
@@ -194,8 +194,7 @@ public class Game {
 			}else {
 				Game.print("Invalid command.");
 			}
-		} 
-		scan.close();
+		 
 	}
 
 }

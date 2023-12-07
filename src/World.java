@@ -7,16 +7,16 @@ public class World {
 	// Builds the game world.
 	// Returns the room the player starts in.
 	public static Room buildWorld() {
-	Room dock = new Room("Dock","DOCK_DOCK");
-	Room ship = new Room("Ship","DOCK_SHIP");
-	Room storage = new Room("Storage","SHIP_STORAGE");
-	Room submarine = new Room("Submarine","DOCK_SUBMARINE");
-	Room gate = new Room("Gate","DOCK_GATE");
-	Room ocean = new Room("Ocean","DOCK_OCEAN");
-	Room bathroom = new Room("Bathroom","SUBMARINE_BATHROOM");
-	Room bedroom = new Room("Bedroom","SHIP_BEDROOM");
-	Room closet = new Room("Closet", "SHIP_CLOSET");
-	Room lounge = new Room("Lounge","SUBMARINE_LOUNGE");
+	Room dock = new Room("dock","DOCK_DOCK");
+	Room ship = new Room("ship","DOCK_SHIP");
+	Room storage = new Room("storage","SHIP_STORAGE");
+	Room submarine = new Room("submarine","DOCK_SUBMARINE");
+	Room gate = new Room("gate","DOCK_GATE");
+	Room ocean = new Room("ocean","DOCK_OCEAN");
+	Room bathroom = new Room("bathroom","SUBMARINE_BATHROOM");
+	Room bedroom = new Room("bedroom","SHIP_BEDROOM");
+	Room closet = new Room("closet", "SHIP_CLOSET");
+	Room lounge = new Room("lounge","SUBMARINE_LOUNGE");
 	
 	Item crates = new Item("crates");
 	crates.setDesc("Large broken crates with pieces of wood scattered about, you spot part of what"

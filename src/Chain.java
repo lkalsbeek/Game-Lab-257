@@ -13,6 +13,7 @@ public class Chain extends Item {
 			Item goo = new Item("goo");
 			goo.setDesc("green and slimy goo");
 			Game.addItem(goo);
+			Game.getCurrentRoom().setRoomID("DOCK_SHIP_B");
 			setUsed(true);
 		}else{
 			Game.print("The chain cannot be used here.");
