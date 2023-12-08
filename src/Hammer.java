@@ -13,7 +13,7 @@ public class Hammer extends Item{
 				Game.print("The hammer completley shatters the lock on the door to"
 						+ " the closet. The door swings open!");
 				setUsed(true);
-				Game.getCurrentRoom().setRoomID("DOCK_BEDROOM_B");
+				Game.getCurrentRoom().setRoomID("SHIP_BEDROOM_B");
 				Room closet = Game.getCurrentRoom().getExit('e');
 				closet.setLocked(false);
 			}

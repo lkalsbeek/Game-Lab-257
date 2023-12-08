@@ -8,7 +8,7 @@ public class Clothes extends Item {
 	public void use() {
 		if (Game.getCurrentRoom().getName().equals("closet")) {
 				Game.print("You dig through the clothes and find a ring of keys");
-				Item keys = new Item("keys");
+				Item keys = new Keys();
 				keys.setDesc("Ring of keys");
 				Game.getCurrentRoom().addItem(keys);
 		}else{
